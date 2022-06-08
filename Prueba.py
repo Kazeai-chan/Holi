@@ -44,7 +44,7 @@ while activo == 0:
                                 letras2 = patente[0:4]
                                 malo = 0
                                 for c in letras2:
-                                    if c not in baseNum:
+                                    if c in baseNum:
                                         malo = 1
                                 if malo == 0:
                                     forma = 2
@@ -78,13 +78,16 @@ while activo == 0:
                         print("Debe ingresar algún dato")
                 revisor = 0
                 while revisor == 0:
-                    print("Ingrese el año del vehículo")
-                    año = int(input("")) 
-                    if año >= 1900 and año <= 2021:
-                        autosDet.append(año)
-                        revisor = 1
-                    else:
-                        print("Debe ingresar un numero entre 1900 y 2021")      
+                    try:
+                        print("Ingrese el año del vehículo")
+                        año = int(input("")) 
+                        if año >= 1900 and año <= 2021:
+                            autosDet.append(año)
+                            revisor = 1
+                        else:
+                            print("Debe ingresar un numero entre 1900 y 2021")      
+                    except:
+                        print("Dato mal ingresado")
                 revisor = 0
                 while revisor == 0:
                     print("Ingrese el tipo de vehículo dependiendo si es: bencina, diesel, eléctrico, híbrido, deberá ingresar los carácteres b, d, e o h")
